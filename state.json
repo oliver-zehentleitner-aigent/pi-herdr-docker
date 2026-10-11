@@ -1,0 +1,1387 @@
+{
+ "state-json": 2,
+ "generated": "2026-10-11T16:58:05Z",
+ "dashboard": "0.11.0",
+ "linter": "0.20.1.0",
+ "project": {
+  "id": "cgint---pi-herdr-docker",
+  "name": "cgint-pi-herdr-docker",
+  "context": "context/",
+  "schema": "0.20.1",
+  "config": {
+   "id": "cgint---pi-herdr-docker",
+   "canonical": "https://github.com/cgint/pi-herdr-docker",
+   "context": "`context/`",
+   "init": "complete",
+   "context-schema": "0.20.1",
+   "capture-confirmation": "confirm-when-unsure",
+   "source-reference": "never"
+  },
+  "personal_defaults": {},
+  "config_file": ".keep-the-why",
+  "canonical": "https://github.com/cgint/pi-herdr-docker",
+  "root": "",
+  "parent": "",
+  "dashboard_state": "",
+  "children": [],
+  "git": {
+   "available": true,
+   "head": "afdbe58",
+   "head_full": "afdbe584da5f628a16957e567c29fc25138ba6a5",
+   "branch": "keep-the-why-0.20.1",
+   "remote": "github.com/oliver-zehentleitner-aigent/pi-herdr-docker",
+   "upstream": "github.com/cgint/pi-herdr-docker",
+   "fork": {
+    "of": "github.com/cgint/pi-herdr-docker",
+    "by": "upstream"
+   },
+   "project_subdir": "",
+   "shallow": false
+  }
+ },
+ "topics": [
+  {
+   "file": "cache.md",
+   "title": "Cache",
+   "index_line": "why caches stay in /tmp instead of mounted host paths",
+   "entries": 1,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 1
+   },
+   "evidence": {
+    "inferred": 1
+   }
+  },
+  {
+   "file": "container-runtime.md",
+   "title": "Container runtime",
+   "index_line": "base image choice; the open root-vs-named-user switch",
+   "entries": 2,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 1,
+    "open": 1
+   },
+   "evidence": {
+    "inferred": 1,
+    "confirmed": 1
+   }
+  },
+  {
+   "file": "dockerfile.md",
+   "title": "Dockerfile",
+   "index_line": "why herdr and herdr-web are pinned/vendored in the image",
+   "entries": 2,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 2
+   },
+   "evidence": {
+    "inferred": 2
+   }
+  },
+  {
+   "file": "entrypoint.md",
+   "title": "Entrypoint",
+   "index_line": "why the entrypoint removes stale herdr sockets at start",
+   "entries": 1,
+   "refs_out": [
+    "herdr-state.md"
+   ],
+   "refs_in": [],
+   "status": {
+    "active": 1
+   },
+   "evidence": {
+    "inferred": 1
+   }
+  },
+  {
+   "file": "herdr-cli.md",
+   "title": "Herdr CLI",
+   "index_line": "herdr agent prompt: why no --until for normal work",
+   "entries": 1,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 1
+   },
+   "evidence": {
+    "inferred": 1
+   }
+  },
+  {
+   "file": "herdr-state.md",
+   "title": "Herdr state",
+   "index_line": "why herdr state is a named volume, config handling, shutdown path, history secrets",
+   "entries": 5,
+   "refs_out": [],
+   "refs_in": [
+    "entrypoint.md",
+    "host-platform.md"
+   ],
+   "status": {
+    "active": 5
+   },
+   "evidence": {
+    "inferred": 5
+   }
+  },
+  {
+   "file": "host-platform.md",
+   "title": "Host platform",
+   "index_line": "why macOS Docker Desktop's filesystem limits drive the volume/mount design",
+   "entries": 1,
+   "refs_out": [
+    "herdr-state.md"
+   ],
+   "refs_in": [],
+   "status": {
+    "active": 1
+   },
+   "evidence": {
+    "inferred": 1
+   }
+  },
+  {
+   "file": "memory.md",
+   "title": "Memory",
+   "index_line": "why durable pairing memory lives in committed files by type",
+   "entries": 1,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 1
+   },
+   "evidence": {
+    "inferred": 1
+   }
+  },
+  {
+   "file": "mounts.md",
+   "title": "Mounts",
+   "index_line": "why dev dirs are read-only by default, with explicit rw overrides",
+   "entries": 2,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 2
+   },
+   "evidence": {
+    "inferred": 2
+   }
+  },
+  {
+   "file": "multi-instance.md",
+   "title": "Multi-instance",
+   "index_line": "why parallel instances each get their own volume and port",
+   "entries": 1,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 1
+   },
+   "evidence": {
+    "inferred": 1
+   }
+  },
+  {
+   "file": "ollama.md",
+   "title": "Ollama",
+   "index_line": "why the local LLM gateway is wired through the Docker host gateway",
+   "entries": 1,
+   "refs_out": [
+    "pi-state.md"
+   ],
+   "refs_in": [],
+   "status": {
+    "active": 1
+   },
+   "evidence": {
+    "inferred": 1
+   }
+  },
+  {
+   "file": "pi-in-docker.md",
+   "title": "Pi in Docker",
+   "index_line": "which pi package the image installs; why the version is not pinned",
+   "entries": 2,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 2
+   },
+   "evidence": {
+    "inferred": 2
+   }
+  },
+  {
+   "file": "pi-state.md",
+   "title": "Pi state",
+   "index_line": "how ~/.pi is mounted; extension resolution; local LLM reachability",
+   "entries": 3,
+   "refs_out": [],
+   "refs_in": [
+    "ollama.md"
+   ],
+   "status": {
+    "active": 3
+   },
+   "evidence": {
+    "inferred": 3
+   }
+  },
+  {
+   "file": "repo.md",
+   "title": "Repo",
+   "index_line": "why the GitHub slug and the local directory name differ",
+   "entries": 1,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 1
+   },
+   "evidence": {
+    "inferred": 1
+   }
+  },
+  {
+   "file": "secrets.md",
+   "title": "Secrets",
+   "index_line": "why API keys are passed per-invocation, not baked in",
+   "entries": 1,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 1
+   },
+   "evidence": {
+    "inferred": 1
+   }
+  },
+  {
+   "file": "web-ui.md",
+   "title": "Web UI",
+   "index_line": "why the web bridge is additive over the server image and shares its state",
+   "entries": 1,
+   "refs_out": [],
+   "refs_in": [],
+   "status": {
+    "active": 1
+   },
+   "evidence": {
+    "inferred": 1
+   }
+  }
+ ],
+ "entries": [
+  {
+   "id": "cache.md#cache-directories-redirected-to-tmp-not-the-mounted-host-paths",
+   "uuid": "33552e3f-5620-4184-8ce6-e28eca63567b",
+   "file": "cache.md",
+   "line": 3,
+   "end_line": 16,
+   "title": "Cache directories redirected to /tmp, not the mounted host paths",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commits bef4d72, a645364; run.sh environment variables",
+   "verification": null,
+   "revisit_when": "cache persistence across container restarts becomes a requirement",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "container-runtime.md#base-image-node-22-trixie",
+   "uuid": "9e25f3ae-5974-4dcb-a65c-ce41d5f13d8d",
+   "file": "container-runtime.md",
+   "line": 3,
+   "end_line": 19,
+   "title": "Base image: node:22-trixie",
+   "type": [
+    "constraint"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "verified findings, `NOTES.md`",
+   "verification": null,
+   "revisit_when": "pi supports Node 20 again, or Debian trixie leaves Debian stable",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "container-runtime.md#container-runs-as-root-named-user-switch-is-planned-but-not-implemented",
+   "uuid": "70d5ccfa-fcdd-4d37-9185-0336e6730434",
+   "file": "container-runtime.md",
+   "line": 20,
+   "end_line": 37,
+   "title": "Container runs as root; named-user switch is planned but not implemented",
+   "type": [
+    "decision"
+   ],
+   "status": "open",
+   "evidence": "confirmed",
+   "source": "commit 88d8d66, user switch plan in `NOTES.md`; confirmed by the maintainer in this session, 2026-10-10",
+   "verification": null,
+   "revisit_when": "the user switch plan lands, or the plan is abandoned",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "8dbd3a7"
+    },
+    "status_history": [
+     {
+      "status": "open",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "dockerfile.md#herdr-binary-pinned-by-version-and-checksum-in-the-image",
+   "uuid": "d825282b-ff1a-4f18-8c34-ea8896f31b1b",
+   "file": "dockerfile.md",
+   "line": 3,
+   "end_line": 17,
+   "title": "Herdr binary pinned by version and checksum in the image",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "Dockerfile.herdr",
+   "verification": null,
+   "revisit_when": "herdr is installed by a different mechanism",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "dockerfile.md#herdr-web-source-vendored-as-a-pinned-tarball-not-fetched-at-build-time",
+   "uuid": "c77546b5-1354-4f19-a6ec-6f877ca9ae56",
+   "file": "dockerfile.md",
+   "line": 18,
+   "end_line": 31,
+   "title": "herdr-web source vendored as a pinned tarball, not fetched at build time",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commit 8a3385f, build-context directory",
+   "verification": null,
+   "revisit_when": "the herdr-web bridge is moved to a versioned release",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "entrypoint.md#entrypoint-removes-stale-herdr-sockets-before-starting-the-server",
+   "uuid": "26072ca3-ec98-4a53-ae01-b8da9723cbd6",
+   "file": "entrypoint.md",
+   "line": 3,
+   "end_line": 20,
+   "title": "Entrypoint removes stale herdr sockets before starting the server",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commit 97c7048",
+   "verification": null,
+   "revisit_when": "herdr stops using a fixed socket path, or the state directory moves",
+   "see": [
+    {
+     "locator": "herdr-state.md",
+     "uuid": "6351bb41-1742-4cbb-b011-11bf1a48edfa",
+     "date": "2026-10-10",
+     "file": "herdr-state.md",
+     "anchor": null,
+     "remote": null
+    }
+   ],
+   "superseded_by": null,
+   "refs": [
+    "herdr-state.md"
+   ],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "herdr-cli.md#herdr-agent-prompt-no-until-for-normal-work",
+   "uuid": "9691659f-06dd-4dc1-94cb-4dd8509c5bdf",
+   "file": "herdr-cli.md",
+   "line": 3,
+   "end_line": 16,
+   "title": "herdr agent prompt: no --until for normal work",
+   "type": [
+    "constraint"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "verified findings, `NOTES.md` (herdr CLI section, from the project's own herdr skill file)",
+   "verification": null,
+   "revisit_when": "herdr's prompt --wait behavior changes",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "herdr-state.md#herdr-state-on-a-named-volume-not-a-bind-mount",
+   "uuid": "8df98718-04bf-4ac1-8b60-df6d70252503",
+   "file": "herdr-state.md",
+   "line": 3,
+   "end_line": 21,
+   "title": "Herdr state on a named volume, not a bind mount",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "verified findings, `NOTES.md`; rejected-approaches section there",
+   "verification": null,
+   "revisit_when": "macOS Docker Desktop's gRPC-Fuse limitations change",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "herdr-state.md#herdr-state-directory-follows-home-config-herdr-herdr-config-dir-is-not-honored",
+   "uuid": "ab667af7-716b-4532-85ee-2660d4e13f91",
+   "file": "herdr-state.md",
+   "line": 22,
+   "end_line": 36,
+   "title": "Herdr state directory follows $HOME/.config/herdr; HERDR_CONFIG_DIR is not honored",
+   "type": [
+    "constraint"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "verified findings, `NOTES.md` (herdr 0.9.1)",
+   "verification": null,
+   "revisit_when": "a herdr release honors HERDR_CONFIG_DIR",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "herdr-state.md#herdr-config-self-contained-in-the-repo-not-symlinked-to-the-host-config",
+   "uuid": "15dd3e33-1f72-4887-adf8-f982c33565f0",
+   "file": "herdr-state.md",
+   "line": 37,
+   "end_line": 51,
+   "title": "Herdr config self-contained in the repo, not symlinked to the host config",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commit 8741c46, user requirements in `NOTES.md`",
+   "verification": null,
+   "revisit_when": "the repo stops being intended as a self-contained recipe",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "herdr-state.md#herdr-sh-down-sigterm-is-the-shutdown-path-not-the-herdr-api",
+   "uuid": "6351bb41-1742-4cbb-b011-11bf1a48edfa",
+   "file": "herdr-state.md",
+   "line": 52,
+   "end_line": 66,
+   "title": "herdr.sh down (SIGTERM) is the shutdown path, not the herdr API",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "verified findings, `NOTES.md`",
+   "verification": null,
+   "revisit_when": "herdr's shutdown behavior changes",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "herdr-state.md#session-history-json-can-contain-secrets",
+   "uuid": "69ca4aeb-d4d5-479b-b386-b9cc6a525240",
+   "file": "herdr-state.md",
+   "line": 67,
+   "end_line": 82,
+   "title": "session-history.json can contain secrets",
+   "type": [
+    "constraint"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "open items in `NOTES.md`",
+   "verification": null,
+   "revisit_when": "pane_history is turned off, or herdr stops writing terminal output to history",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "host-platform.md#macos-docker-desktop-filesystem-limitations-drive-several-design-choices",
+   "uuid": "92656033-3943-4a41-9a37-b5d00ec8bcc5",
+   "file": "host-platform.md",
+   "line": 3,
+   "end_line": 23,
+   "title": "macOS Docker Desktop filesystem limitations drive several design choices",
+   "type": [
+    "constraint"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "verified findings, `NOTES.md`",
+   "verification": null,
+   "revisit_when": "Docker Desktop's macOS filesystem backend changes",
+   "see": [
+    {
+     "locator": "herdr-state.md",
+     "uuid": "8df98718-04bf-4ac1-8b60-df6d70252503",
+     "date": "2026-10-10",
+     "file": "herdr-state.md",
+     "anchor": null,
+     "remote": null
+    }
+   ],
+   "superseded_by": null,
+   "refs": [
+    "herdr-state.md"
+   ],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "memory.md#durable-pairing-memory-is-filesystem-persisted-in-canonical-per-type-homes",
+   "uuid": "3ec796ca-7a5c-426f-aef2-a685d825bee1",
+   "file": "memory.md",
+   "line": 3,
+   "end_line": 18,
+   "title": "Durable pairing memory is filesystem-persisted, in canonical per-type homes",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "AGENTS.md durable pairing memory section, commit 8741c46",
+   "verification": null,
+   "revisit_when": "the memory scheme is replaced",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "mounts.md#dev-and-dev-external-mounted-read-only-with-explicit-read-write-overrides",
+   "uuid": "d2e406bd-4988-4e2d-b7af-56a42ef584c2",
+   "file": "mounts.md",
+   "line": 3,
+   "end_line": 19,
+   "title": "~/dev and ~/dev-external mounted read-only, with explicit read-write overrides",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commits 1caf92d, b53a31c; user requirements in `NOTES.md`",
+   "verification": null,
+   "revisit_when": "the default mount policy changes",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "mounts.md#the-working-repository-is-the-only-writable-mount-by-default",
+   "uuid": "eb30c1b5-d5cd-41f7-9afb-c605039d4438",
+   "file": "mounts.md",
+   "line": 20,
+   "end_line": 33,
+   "title": "The working repository is the only writable mount by default",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commits 8741c46, b53a31c; user requirements in `NOTES.md`",
+   "verification": null,
+   "revisit_when": "the default mount policy changes",
+   "see": [
+    {
+     "locator": "mounts.md",
+     "uuid": "d2e406bd-4988-4e2d-b7af-56a42ef584c2",
+     "date": "2026-10-10",
+     "file": "mounts.md",
+     "anchor": null,
+     "remote": null
+    }
+   ],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "multi-instance.md#each-herdr-instance-gets-its-own-volume-and-ssh-port",
+   "uuid": "0c051adb-cd6c-451a-b709-81037ff46992",
+   "file": "multi-instance.md",
+   "line": 3,
+   "end_line": 18,
+   "title": "Each herdr instance gets its own volume and SSH port",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "herdr.sh, multi-instance section",
+   "verification": null,
+   "revisit_when": "instances need to share state, or the port scheme changes",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "ollama.md#local-llm-gateway-pointed-at-the-docker-host-gateway",
+   "uuid": "b6ba47ab-be2c-4b21-9d53-12eeeb7804e7",
+   "file": "ollama.md",
+   "line": 3,
+   "end_line": 18,
+   "title": "Local LLM gateway pointed at the Docker host gateway",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commit f39a2c6, open items in NOTES.md",
+   "verification": null,
+   "revisit_when": "the local LLM gateway is verified reachable from the container",
+   "see": [
+    {
+     "locator": "pi-state.md",
+     "uuid": "7caa9c5c-21d2-4480-9058-2d973cd21e2b",
+     "date": "2026-10-10",
+     "file": "pi-state.md",
+     "anchor": null,
+     "remote": null
+    }
+   ],
+   "superseded_by": null,
+   "refs": [
+    "pi-state.md"
+   ],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "pi-in-docker.md#pi-package-earendil-works-pi-coding-agent-not-the-frozen-mariozechner-name",
+   "uuid": "751c57b0-dc31-47a9-be9a-e31700df4f91",
+   "file": "pi-in-docker.md",
+   "line": 3,
+   "end_line": 17,
+   "title": "Pi package: @earendil-works/pi-coding-agent, not the frozen @mariozechner name",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "verified findings, `NOTES.md`",
+   "verification": null,
+   "revisit_when": "the pi package name changes again",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "pi-in-docker.md#pi-version-pinned-to-latest-in-the-image",
+   "uuid": "c8964547-4e7d-48b5-97b9-d5622b930ebb",
+   "file": "pi-in-docker.md",
+   "line": 18,
+   "end_line": 33,
+   "title": "Pi version pinned to @latest in the image",
+   "type": [
+    "workaround"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commit history, open items in `NOTES.md`",
+   "verification": null,
+   "revisit_when": "pi is pinned to an explicit version in `Dockerfile.herdr`",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "pi-state.md#pi-mounted-at-a-flat-path-not-per-profile",
+   "uuid": "7093db79-50bd-4eae-b4e9-d8b15ff11aad",
+   "file": "pi-state.md",
+   "line": 3,
+   "end_line": 17,
+   "title": "~/.pi mounted at a flat path, not per-profile",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "user requirements, `NOTES.md`",
+   "verification": null,
+   "revisit_when": "pi changes how it resolves profile paths",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "pi-state.md#pi-extensions-resolve-their-dependencies-by-walking-up-the-directory-tree",
+   "uuid": "3d0f41c1-6e57-4f5c-a82d-9a450cce6782",
+   "file": "pi-state.md",
+   "line": 18,
+   "end_line": 32,
+   "title": "Pi extensions resolve their dependencies by walking up the directory tree",
+   "type": [
+    "constraint"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "verified findings, `NOTES.md`",
+   "verification": null,
+   "revisit_when": "pi changes extension dependency resolution",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "pi-state.md#local-llm-endpoints-are-unreachable-from-the-container-as-configured",
+   "uuid": "7caa9c5c-21d2-4480-9058-2d973cd21e2b",
+   "file": "pi-state.md",
+   "line": 33,
+   "end_line": 46,
+   "title": "Local LLM endpoints are unreachable from the container as configured",
+   "type": [
+    "constraint"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "verified findings, `NOTES.md`",
+   "verification": null,
+   "revisit_when": "the local LLM gateway is reachable from the container",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "repo.md#github-slug-differs-from-the-local-directory-name",
+   "uuid": "e783b4d6-446a-4c78-9083-a576b00eb6e0",
+   "file": "repo.md",
+   "line": 3,
+   "end_line": 16,
+   "title": "GitHub slug differs from the local directory name",
+   "type": [
+    "constraint"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commit 3583eb5, AGENTS.md current-state section",
+   "verification": null,
+   "revisit_when": "the repository is renamed, or the local directory is renamed to match",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "secrets.md#api-keys-are-conditionally-passed-into-the-container-not-baked-into-the-image",
+   "uuid": "85f2c239-b3ff-40b5-b7fd-7027e086d5a3",
+   "file": "secrets.md",
+   "line": 3,
+   "end_line": 18,
+   "title": "API keys are conditionally passed into the container, not baked into the image",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commit a645364",
+   "verification": null,
+   "revisit_when": "the container's credential-handling approach changes",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  },
+  {
+   "id": "web-ui.md#web-bridge-is-additive-over-the-server-image-same-herdr-state-volume",
+   "uuid": "74a925be-5622-4c10-99a2-3d7ffdf26a70",
+   "file": "web-ui.md",
+   "line": 3,
+   "end_line": 18,
+   "title": "Web bridge is additive over the server image; same herdr-state volume",
+   "type": [
+    "decision"
+   ],
+   "status": "active",
+   "evidence": "inferred",
+   "source": "commit 8a3385f, herdr-web design doc in docs/",
+   "verification": null,
+   "revisit_when": "the web bridge is removed, or herdr-web gains its own state",
+   "see": [],
+   "superseded_by": null,
+   "refs": [],
+   "git": {
+    "created": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "last_touched": {
+     "author": "author-1",
+     "date": "2026-10-11",
+     "commit": "9c31d1f"
+    },
+    "status_history": [
+     {
+      "status": "active",
+      "author": "author-1",
+      "date": "2026-10-11",
+      "commit": "9c31d1f"
+     }
+    ]
+   },
+   "findings": []
+  }
+ ],
+ "authors": [
+  {
+   "name": "author-1",
+   "created": 26,
+   "touched": 26,
+   "superseded": 0,
+   "first": "2026-10-11",
+   "last": "2026-10-11",
+   "evidence": {
+    "inferred": 25,
+    "confirmed": 1
+   }
+  }
+ ],
+ "anonymized": true,
+ "findings": {
+  "errors": 0,
+  "warnings": 0,
+  "items": []
+ },
+ "exported": true,
+ "bodies": "state.body.json"
+}
