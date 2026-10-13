@@ -1,7 +1,7 @@
 {
  "state-json": 2,
- "generated": "2026-10-12T12:48:23Z",
- "dashboard": "0.11.1",
+ "generated": "2026-10-13T06:48:53Z",
+ "dashboard": "0.11.2",
  "linter": "0.20.2.0",
  "project": {
   "id": "cgint---pi-herdr-docker",
