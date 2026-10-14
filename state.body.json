@@ -1,6 +1,6 @@
 {
  "state-json": 2,
- "generated": "2026-10-13T07:43:49Z",
+ "generated": "2026-10-14T08:37:21Z",
  "bodies": {
   "cache.md#cache-directories-redirected-to-tmp-not-the-mounted-host-paths": {
    "text": "The container redirects package-manager and other tool cache directories (an uv cache, XDG cache and data directories) to `/tmp` inside the container instead of letting them land in mounted host paths.\n\n**Reason:** caches grow without bound and are cheap to rebuild; persisting them on the host would fill host disk with per-container cache files and create host-owned files (the root-owned-file problem the user-switch plan addresses). Keeping them in the container's own writable layer means they die with the container, which is the correct lifetime for a cache.\n\n**Rejected alternative:** let caches write into mounted host directories. Host disk fills with stale cache files, and the files are root-owned until the user switch lands.",
